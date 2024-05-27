@@ -1,12 +1,12 @@
-const asyncHandler = (fn) => (req, res, next) => {
-    try {
-        fn(req, res, next)
-    } catch (error) {
+const asyncHandler = fn => (req, res, next) => {
+    fn(req, res, next).catch(error => {
+        console.error(error);
         res.status(error.statusCode || 500).json({
-            message: error.message,
-            success: false
-        })
-    }
-}
+            message: error.message || "Internal Server Error",
+            success: false,
+            errors: error.errors || []
+        });
+    });
+};
 
-export {asyncHandler}
+export { asyncHandler };
