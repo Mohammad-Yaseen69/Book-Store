@@ -1,15 +1,13 @@
-import { useFetch } from "./utils/useFetch"
+import { Outlet } from "react-router-dom"
+
 
 function App() {
-  const { data, error, loading } = useFetch('get', 'books')
 
-  console.log(
-    data,error, loading
-  )
+
 
   return (
-    <div>
-
+    <div className="w-full min-h-screen bg-gray-200">
+      <Outlet />
     </div>
   )
 }
