@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 import './index.css'
 import { Route, RouterProvider, createBrowserRouter, createRoutesFromElements } from 'react-router-dom'
-import { Home, CreateBook, DeleteBook, EditBook, ShowBook } from './pages'
+import { Home, CreateBook, EditBook } from './pages'
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -12,7 +12,6 @@ const router = createBrowserRouter(
       <Route path='/' element={<Home />} />
       <Route path='create-book' element={<CreateBook />} />
       <Route path='edit-book/:id' element={<EditBook />} />
-      <Route path='show-book/:id' element={<ShowBook />} />
     </Route>
   )
 )
